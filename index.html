@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/596072d93b.js" crossorigin="anonymous"></script>
+    <title>Pierre Feuille Ciseau</title>
+</head>
+<body>
+<div id="container">
+    <div id="introduction_container">
+        <h1>Pierre Feuille Ciseau</h1>
+        <h2>Les règles :</h2>
+        <p>Gagner contre l'ordinateur avec les combinaisons suivantes :</p>
+        <ul>
+            <li>Pierre -> Ciseau</li>
+            <li>Feuille -> Pierre</li>
+            <li>Ciseau -> Feuille</li>
+        </ul>
+        <h1>Choississez la difficulté du bot :</h1>
+        <select name="difficulty" id="difficulty">
+            <option value="none">--Selectionnez une difficulté--</option>
+            <option value="Facile">Facile</option>
+            <option value="Moyen">Moyen</option>
+            <option value="Difficile">Difficile</option>
+            <option value="Godmode">Godmode</option>
+        </select>
+    </div>
+
+    <div id="versus_container">
+
+        <!--Human container-->
+        <div id="human_container">
+            <h1>Joueur</h1>
+                <i class="fa-solid fa-hand-back-fist"></i>
+                <i class="fa-solid fa-hand"></i>
+                <i class="fa-solid fa-hand-scissors"></i>
+        </div>
+
+        
+        <!--CPU container-->
+        <div id="cpu_container">
+            <h1>Ordinateur</h1>
+                <i class="fa-solid fa-hand-back-fist"></i>
+                <i class="fa-solid fa-hand"></i>
+                <i class="fa-solid fa-hand-scissors"></i>
+        </div>
+        
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

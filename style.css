@@ -1,0 +1,121 @@
+*{
+    margin: 0; 
+    padding: 0;
+}
+
+#container{
+    height: 100vh;
+    font-family: 'Lobster', cursive;
+    background-color: black;
+}
+
+#introduction_container{
+    text-align: center;
+    position: fixed;
+    top: 30%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+#introduction_container h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#introduction_container h1:nth-child(1){
+    font-size: 5em;
+}
+
+#introduction_container h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+#introduction_container ul{
+    list-style-type: none;
+}
+
+#introduction_container ul li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#introduction_container select{
+    padding: 12px;
+    font-weight: bold;
+}
+
+#introduction_container select option{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#introduction_container select option:nth-child(1){
+    background-color: grey;
+}
+#introduction_container select option:nth-child(2){
+    background-color: green
+}
+#introduction_container select option:nth-child(3){
+    background-color: orange;
+}
+#introduction_container select option:nth-child(4){
+    background-color: red;
+}
+#introduction_container select option:nth-child(5){
+    background-color: black;
+}
+
+#versus_container{
+    display: flex;
+    color: white;
+    position: fixed;
+    top: 60%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    gap: 200px;
+    margin-top: 100px;
+}
+
+#versus_container h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 3em;
+}
+
+#versus_container #human_container{
+    background-color: #5c626b;
+    width: 700px;
+    text-align: center;
+    height: 300px;
+    border-radius: 50px;
+}
+
+#versus_container #cpu_container{
+    background-color: #5c626b;
+    width: 700px;
+    text-align: center;
+    height: 300px;
+    border-radius: 50px;
+}
+
+#versus_container i{
+    background-color: black;
+    padding: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 40px;
+    border-radius: 50%;
+
+}
+
+#versus_container i:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    transition: 1s;
+    box-shadow: 0px 5px #767c87;
+
+}
