@@ -17,7 +17,8 @@ function onClickElement(element){
       changeColor(element[0], "green");
       let selectedElement = element[0];
       clickedElements++;
-      return selectedElement;
+      cpuChoice();
+      randomVerifier(selectedElement, cpuChoice());
 
     }
     else{
@@ -28,7 +29,6 @@ function onClickElement(element){
       changeColor(element[0], "white");
       let selectedElement = null;
       clickedElements--;
-      return selectedElement;
     }
   })
 }
@@ -53,34 +53,48 @@ winningCombinations = [
   }
 ]
 
-console.log(winningCombinations);
-
-
-
-
-
-
-
-
+function randomVerifier(human_element, cpu_element){
+  for(let i = 0 ; winningCombinations.length ; i++){
+    if(winningCombinations[i].element == human_element && winningCombinations[i].beats == cpu_element){
+      console.log("Vous avez gagné !");
+      return hasWon = true;
+    }
+    else{
+      console.log("Vous avez perdu !");
+      return hasWon = false;
+    }
+  }
+}
 
 function cpuChoice(){
   let cpu_random = Math.floor(Math.random() * 3);
   switch (cpu_random){
     case cpu_random = 0:
+      //Reset :
+      pierre[1].style.color = "white";
+      feuille[1].style.color = "white";
+      ciseau[1].style.color = "white";
       console.log("Pierre a été choisi par l'ordinateur");
       changeColor(pierre[1], "red");
       return pierre[1];
 
     case cpu_random = 1:
+      //Reset :
+      pierre[1].style.color = "white";
+      feuille[1].style.color = "white";
+      ciseau[1].style.color = "white";
       console.log("Feuille a été choisi par l'ordinateur");
       changeColor(feuille[1], "red");
       return feuille[1];
 
     case cpu_random = 2:
+      //Reset :
+      pierre[1].style.color = "white";
+      feuille[1].style.color = "white";
+      ciseau[1].style.color = "white";
       console.log("Ciseau a été choisi par l'ordinateur");
       changeColor(ciseau[1], "red");
       return ciseau[1];
-
   }
 }
 
