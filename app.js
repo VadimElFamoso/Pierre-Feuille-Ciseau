@@ -3,6 +3,16 @@ const pierre = document.getElementsByClassName('fa-hand-back-fist');
 const feuille = document.getElementsByClassName('fa-hand');
 const ciseau = document.getElementsByClassName('fa-hand-scissors');
 
+const human_score = document.getElementById("human_score");
+const cpu_score = document.getElementById("cpu_score");
+
+//Arrays index :
+const human_index = 0;
+const cpu_index = 1;
+
+//Scores : 
+let human_score_result = 0;
+let cpu_score_result = 0;
 
 //Changement de couleur d'un élément : 
 function changeColor(element, color){
@@ -12,14 +22,12 @@ function changeColor(element, color){
 function onClickElement(element){
   clickedElements = 0;
 
-  element[0].addEventListener("click", function(){
+  element[human_index].addEventListener("click", function(){
     if(clickedElements == 0){
-      changeColor(element[0], "green");
-      let selectedElement = element[0];
+      changeColor(element[human_index], "green");
+      let selectedElement = element[human_index];
       clickedElements++;
-      cpuChoice();
       randomVerifier(selectedElement, cpuChoice());
-
     }
     else{
       //Reset :
@@ -33,36 +41,26 @@ function onClickElement(element){
   })
 }
 
-onClickElement(pierre);
-onClickElement(feuille);
-onClickElement(ciseau);
-
-//Combinaisons gagnantes :
-winningCombinations = [
-  {
-    element: pierre[0],
-    beats: ciseau[1]
-  },
-  {
-    element: feuille[0],
-    beats: pierre[1]
-  },
-  {
-    element: ciseau[0],
-    beats: feuille[1]
-  }
-]
-
 function randomVerifier(human_element, cpu_element){
-  for(let i = 0 ; winningCombinations.length ; i++){
-    if(winningCombinations[i].element == human_element && winningCombinations[i].beats == cpu_element){
-      console.log("Vous avez gagné !");
-      return hasWon = true;
+let winningPairs = 0;
+
+  winningCombinations.forEach(pairs => {
+    if(pairs.element == human_element && pairs.beats == cpu_element){
+      winningPairs++;
     }
-    else{
-      console.log("Vous avez perdu !");
-      return hasWon = false;
-    }
+  }); 
+  
+  if(winningPairs == 1){
+    console.log("Vous avez gagné !");
+    human_score_result++;
+    human_score.innerHTML = human_score_result;
+    return true;
+  }
+  else{
+    console.log("Vous avez perdu !");
+    cpu_score_result++;
+    cpu_score.innerHTML = cpu_score_result;
+    return false;
   }
 }
 
@@ -71,33 +69,52 @@ function cpuChoice(){
   switch (cpu_random){
     case cpu_random = 0:
       //Reset :
-      pierre[1].style.color = "white";
-      feuille[1].style.color = "white";
-      ciseau[1].style.color = "white";
+      pierre[cpu_index].style.color = "white";
+      feuille[cpu_index].style.color = "white";
+      ciseau[cpu_index].style.color = "white";
       console.log("Pierre a été choisi par l'ordinateur");
-      changeColor(pierre[1], "red");
-      return pierre[1];
+      changeColor(pierre[cpu_index], "red");
+      return pierre[cpu_index];
 
     case cpu_random = 1:
       //Reset :
-      pierre[1].style.color = "white";
-      feuille[1].style.color = "white";
-      ciseau[1].style.color = "white";
+      pierre[cpu_index].style.color = "white";
+      feuille[cpu_index].style.color = "white";
+      ciseau[cpu_index].style.color = "white";
       console.log("Feuille a été choisi par l'ordinateur");
-      changeColor(feuille[1], "red");
-      return feuille[1];
+      changeColor(feuille[cpu_index], "red");
+      return feuille[cpu_index];
 
     case cpu_random = 2:
       //Reset :
-      pierre[1].style.color = "white";
-      feuille[1].style.color = "white";
-      ciseau[1].style.color = "white";
+      pierre[cpu_index].style.color = "white";
+      feuille[cpu_index].style.color = "white";
+      ciseau[cpu_index].style.color = "white";
       console.log("Ciseau a été choisi par l'ordinateur");
-      changeColor(ciseau[1], "red");
-      return ciseau[1];
+      changeColor(ciseau[cpu_index], "red");
+      return ciseau[cpu_index];
   }
 }
 
+//Combinaisons gagnantes :
+winningCombinations = [
+  {
+    element: pierre[human_index],
+    beats: ciseau[cpu_index]
+  },
+  {
+    element: feuille[human_index],
+    beats: pierre[cpu_index]
+  },
+  {
+    element: ciseau[human_index],
+    beats: feuille[cpu_index]
+  }
+]
+
+onClickElement(pierre);
+onClickElement(feuille);
+onClickElement(ciseau);
 
 
 
